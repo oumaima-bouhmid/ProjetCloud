@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+
+  suggestions:
+    container_name: suggestions
+    image: suggestions
+    expose:
+      - "8085"
+    build:
+      context: "./suggestionService"
+
+  statistiques:
+    container_name: statistiques
+    image: statistiques
+    ports:
+      - "5000:5000"
+    build:
+      context: "./statistiqueService"
+    depends_on:
+      - 'suggestions'
+  
+  application:
+    container_name: application
+    image: application
+    ports :
+      - "6080:5000"
+    build:
+      context: "./app"
+    depends_on:
+      - 'statistiques'
+      - 'suggestions'
