@@ -1,0 +1,128 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./statistique.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+</head>
+
+<body class="content">
+    <title>Statistique</title>
+    <nav>
+        <ul class="main menu">
+            <img id="logo"
+                src="https://media.discordapp.net/attachments/968543041478615140/968551394313392238/unknown.png">
+            <li><a class="bouton" href="/" target="_self"><b>Accueil</b></a></li>
+        </ul>
+    </nav>
+    <nav>
+        <ul class="sub menu">
+            <li><a class="bouton" href="./suggestion" target="_self"><b><u>Suggestion</u></b></a></li>
+            <li><a class="bouton statistique" href="./statistique" target="_self"><b><u>Statistique</u></b></a></li>
+            <li><a class="bouton" href="./map" target="_self"><b><u>Map</u></b></a></li>
+        </ul>
+    </nav>
+    <div>
+        <h5>
+            <li class="titre"> Nombre totale des visites : {{nbTotal}}</li>
+        </h5>
+    </div>
+    <div class='tab'>
+        <h5>
+            <li class="titre"> Nombre de fois consulté par client :</li>
+        </h5>
+        <p>Clients avec nombre de consultation supérieur ou égale à 20.</p>
+        <table border="1" width="800px" class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th id="header" width="40%" class="th-sm">IP du client</th>
+                    <th id="header" width="40%" class="th-sm">Nombre de fois consulté</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key,value in nbConsultationIp.items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h5>
+            <li class="titre"> Codes de réponse HTTP :</li>
+        </h5>
+        <table border="1" width="800px" class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th id="header" width="40%" class="th-sm">Code status</th>
+                    <th id="header" width="40%" class="th-sm">Fréquence</th>
+                </tr>
+            </thead>
+            {% for key,value in codeStatus.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="paragraph">
+            <p> Les codes de statut de réponse HTTP indiquent si une requête HTTP a été exécutée avec succès ou non. Les
+                réponses sont regroupées en cinq classes :</p>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status#r%C3%A9ponses_informatives"
+                    target="_blank">Les réponses informatives (100 - 199).</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status#r%C3%A9ponses_de_succ%C3%A8s"
+                    target="_blank">Les réponses de succès (200 - 299).</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status#messages_de_redirection"
+                    target="_blank">Les messages de redirection (300 - 399).</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status#r%C3%A9ponses_derreur_c%C3%B4t%C3%A9_client"
+                    target="_blank">Les erreurs du client (400 - 499).</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status#r%C3%A9ponses_derreur_c%C3%B4t%C3%A9_serveur"
+                    target="_blank">Les erreurs du serveur (500 - 599).</a></li>
+        </div>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="image">
+        <h5>
+            <li class="titre">Les 5 pages les plus consulté :</li>
+        </h5>
+        <img src="data:image/png;base64, {{ top5Page }}">
+        <p>
+            {% for key,value in top5PageDict.items() %}
+            <br><strong>{{key}} :</strong> {{value}}
+            {% endfor %}
+        </p>
+    </div>
+    <p></p>
+    <p></p>
+    <div class="image">
+        <h5>
+            <li class="titre">Les 5 moteurs de recherche les plus utilisés :</li>
+        </h5>
+        <img src="data:image/png;base64, {{ top5Se }}">
+        <p>
+            {% for key,value in top5SeDict.items() %}
+            <br><strong>{{key}} :</strong> {{value}}
+            {% endfor %}
+        </p>
+    </div>
+    <p></p>
+    <div class="image">
+        <h5>
+            <li class="titre">Les 10 canaux de distributions les plus frequentés :</li>
+        </h5>
+        <img src="data:image/png;base64, {{ top10_canaux }}">
+        <p>
+            {% for key,value in top10CanneaxDict.items() %}
+            <br><strong>{{key}} :</strong> {{value}}
+            {% endfor %}
+        </p>
+    </div>
+    
+</body>

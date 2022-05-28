@@ -1,0 +1,96 @@
+.main {
+    display: flex;
+    padding: 0;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.menu li {
+    list-style-type: none;
+}
+
+.bouton {
+    min-width: 120px;
+}
+
+.bouton {
+    display: block;
+    margin: 0.5rem;
+    padding: 0.4rem 0;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    transition: all 1s;
+}
+
+.bouton.map {
+    background-color: #74d2e2;
+    color: #020200;
+    border-color: #000000;
+}
+
+.bouton.actif {
+    background-color: #000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.bouton:hover,
+.bouton:hover.actif {
+    background-color: #74d2e2;
+    color: #020200;
+    border-color: #000000;
+}
+
+#logo {
+    display: flex;
+    margin-right: 62%;
+    width: 250;
+}
+
+.content{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.sub {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+}
+
+.sub a {
+    min-width: 320px;
+}
+
+.icone {
+    width: 320;
+}
+
+input[type=text],
+select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,63 @@
+.main {
+    display: flex;                
+    padding:0;                    
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.menu li {
+    list-style-type: none ;       /* Suppression des puces */
+  
+}
+.bouton{
+    min-width: 120px;             /* Largeur minimale des liens */   
+
+}
+.bouton {
+    display:block;                /* Transformation en block */
+    
+    margin: 0.5rem;               /* Marges externes */
+    padding: 0.4rem 0;            /* Marges internes */
+    text-align: center;           /* Centrage du texte */   
+    color: rgb(0, 0, 0);                  /* Couleur du texte */
+    text-decoration: none;        /* Suppression du soulignement */
+    border: 1px solid rgb(0, 0, 0);       /* Ajout d'une bordure */
+    border-radius: 4px;           /* Arrondis des bordures */
+    
+    transition: all 1s ;          /* Ajout des effets de transition */
+}
+.bouton.actif {    
+    background-color: #000 ; 
+    color: #ffffff ;
+    border-color: #ffffff ;
+}
+.bouton:hover,
+.bouton:hover.actif{
+    background-color: #74d2e2;
+    color: #020200;
+    border-color: #000000;
+}
+
+#logo {
+    display: flex;
+    margin-right: 62%;
+    width: 250;
+}
+
+.sub {
+    display: flex;                /* Transformation en flexbox */
+    padding:0;                    /* Suppression des marges internes */
+    justify-content: center; /* Alignements des liens dans le menu */
+    
+}
+.sub a{
+    min-width: 320px;             /* Largeur minimale des liens */   
+
+}
+
+.icone{
+    width: 320;
+} 
+.content{
+    margin-left: 40px;
+    margin-right: 40px;
+}

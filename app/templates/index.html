@@ -1,0 +1,59 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./index.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+    <nav>
+        <ul class="menu">
+            <img id="logo"
+                src="https://media.discordapp.net/attachments/968543041478615140/968551394313392238/unknown.png">
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="texte" class="title col-sm-6 col-xs-5 fw-bold">
+            <h1><em>Bienvenue sur Geolocalized Web Usage Mining!</em></h1>
+        </div>
+        <p></p>
+        <p></p>
+        <title>Accueil</title>
+        <div class="form">
+            <form action="/analyse" method="POST" enctype="multipart/form-data">
+                <p id="texte" class="col-sm-5 col-xs-5">Analyser des logs est un véritable challenge pour les équipes IT
+                    en raison de la volumétrie, mais aussi de la diversité des types de logs, etc. Pourtant cette
+                    pratique est indispensable pour éviter les incidents, anticiper les besoins en CPU et analyser le
+                    comportement utilisateur. Découvrez notre site d’analyse qui exploite des algorithmes de Machine
+                    Learning en séléctionnant votre fichier log.</p>
+                <input class="btn btn-lg" class="form-control" type="file" name="file" required />
+                <div class="invalid-feedback">Veuiller selectionner un fichier</div>
+                <input id="envoie" class="btn btn-light" type="submit" />
+                <div class="form-check">
+                    <input id="condition" class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label id="texte" class="form-check-label" for="invalidCheck">
+                        J'ai lu et j'accepte
+                        <a id="texte" href="./conditions" target="_blank">les conditions générales du site.</a>
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>©Hind ACHNIRI</p>
+        <p>©Meryem ATTAR</p>
+        <p>©Oumaima BOUHMID</p>
+        <p>©Aiman MOHASSINE</p>
+    </footer>
+</body>

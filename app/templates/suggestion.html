@@ -1,0 +1,69 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./suggestion.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+    </script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+</head>
+<body class="content">
+    <title>Suggestion</title>
+    <nav>
+        <ul class="main menu">
+            <img id="logo" src="https://media.discordapp.net/attachments/968543041478615140/968551394313392238/unknown.png">
+            <li><a class="bouton" href="/" target="_self"><b>Accueil</b></a></li>
+        </ul>
+    </nav>
+    <nav>
+        <ul class="sub menu">
+            <li><a class = "bouton suggestion" href="./suggestion"target = "_self"><b><u>Suggestion</u></b></a></li>
+            <li><a class = "bouton" href="./statistique"target = "_self"><b><u>Statistique</u></b></a></li>   
+            <li><a class = "bouton" href="./map" target = "_self"><b><u>Map</u></b></a></li>   
+        </ul>
+    </nav>
+    <div class="image">
+        <img src="./static/associationRules.png">
+    </div>
+    <center><h5>Voulez-vous améliorer votre serveur?</h5>
+    <p> Si oui, voici une proposition.</p></center>
+    <div class='tab'><h5><li>Tableau des association : </li></h5>
+        <table border="1" width="1000px" class="table table-bordered table-sm">
+            <thead >
+                <tr>
+                    <th id="header" width = "50%" class="th-sm">Antécédents</th>
+                    <th id="header" width = "50%" class="th-sm">Conséquents</th>
+                </tr>
+            </thead>  
+            <tbody>
+                {% for key,value in association.items()%}
+                <tr>
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>  
+        </table>
+    </div>
+    <div class="paragraph">
+       
+        <h5><li>Explication : </li></h5>
+        <p> Ce tableau présente l'ensemble des associations entre les pages de votre serveur.
+            En effet, cet analyse montre que la plupart de vos clients qui ont consultés les pages
+            'Antécédents' ont aussi consulté les pages 'Conséquents'.
+        </p>
+        <p>
+            Alors on vous propose d'organiser l'ordre d'affichage de vos pages de tel sort d'améliorer 
+            l'utilisation par vos clients, c'est à dire de bien organiser l'ordre d'affichage de tel sorte
+            à faciliter la recherche pour vos clients.
+        </p>   
+        <p>
+            Voici un exemple pour mieux comprendre cette suggestion.   
+        </p>    
+        <p>
+            Un exemple plus concret basé sur le comportement des consommateurs serait {Pomme}→{Banane} 
+            suggérant que les personnes qui achètent des pommes sont également susceptibles d'acheter des bananes,
+            donc c'est mieux de placer les pommes à coté des bananes pour faciliter les courses du clients.
+        </p>    
+    </div>
+</body>
